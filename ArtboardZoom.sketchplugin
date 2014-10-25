@@ -11,4 +11,4 @@ while([targetArtboard parentGroup] != [doc currentPage]) {
 	targetArtboard = [targetArtboard parentGroup];
 }
 
-[[doc currentView] centerRect:[targetArtboard absoluteRect]];
+[[doc currentView] zoomToFitRect:[targetArtboard absoluteRect]];
