@@ -1,14 +1,14 @@
 //Zoom to current Artboard (command 4)
 var targetArtboard;
 
-if ([selection count] > 0) {
+if (selection.count() > 0) {
 	targetArtboard = selection[0];
 } else {
-	targetArtboard = [[doc currentPage] artboards][0];
+	targetArtboard = doc.currentPage().artboards()[0];
 }
 
-while([targetArtboard parentGroup] != [doc currentPage]) {
-	targetArtboard = [targetArtboard parentGroup];
+while(targetArtboard.parentGroup() != doc.currentPage()) {
+	targetArtboard = targetArtboard.parentGroup();
 }
 
-[[doc currentView] centerRect:[targetArtboard absoluteRect]];
+doc.currentView().centerRect_(targetArtboard.absoluteRect());
