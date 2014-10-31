@@ -11,4 +11,4 @@ while(targetArtboard.parentGroup() != doc.currentPage()) {
 	targetArtboard = targetArtboard.parentGroup();
 }
 
-doc.currentView().centerRect_(targetArtboard.absoluteRect());
+doc.currentView().zoomToFitRect_(targetArtboard.absoluteRect());
