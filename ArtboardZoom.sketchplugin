@@ -11,4 +11,15 @@ while(targetArtboard.parentGroup() != doc.currentPage()) {
 	targetArtboard = targetArtboard.parentGroup();
 }
 
-doc.currentView().zoomToFitRect_(targetArtboard.absoluteRect());
+// Add Margin for target rect.
+var margin = 30.0;
+var artRect = targetArtboard.absoluteRect();
+var targetRect = GKRect.alloc().init();
+targetRect.x = artRect.x();
+targetRect.y = artRect.y();
+targetRect.width = artRect.width();
+targetRect.height = artRect.height();
+
+targetRect.expandBy(margin);
+
+doc.currentView().zoomToFitRect_(targetRect);
