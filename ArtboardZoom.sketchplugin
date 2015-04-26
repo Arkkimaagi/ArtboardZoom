@@ -1,14 +1,19 @@
 //Zoom to current Artboard (command 4)
 var targetArtboard;
+var doc = context.document;
 
-if (selection.count() > 0) {
-	targetArtboard = selection[0];
+var selectedElements = context.selection;
+if([selectedElements count] != 0) {
+	targetArtboard = selectedElements[0];
+	log("Artboard selected");
 } else {
-	targetArtboard = doc.currentPage().artboards()[0];
+	targetArtboard = [[[doc currentPage] artboards] firstObject];
+	log("No artboard selected, selecting first artboard in document");
 }
 
-while(targetArtboard.parentGroup() != doc.currentPage()) {
+while(targetArtboard.parentGroup() != [doc currentPage]) {
 	targetArtboard = targetArtboard.parentGroup();
 }
 
-doc.currentView().zoomToFitRect_(targetArtboard.absoluteRect());
+var view = [doc currentView];
+[view zoomToFitRect:[targetArtboard rect]];
