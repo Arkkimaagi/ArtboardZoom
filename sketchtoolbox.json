@@ -2,8 +2,8 @@
   "name": "ArtboardZoom",
   "short-description": "\"Zoom\" to currently selected Artboard",
   "description": "Move viewport to the artboard where your currently selected element is.",
-  "version": "1.0.0",
-  "sketch-version": 3.0,
+  "version": "1.0.1",
+  "sketch-version": 3.3,
   "homepage": "https://github.com/Arkkimaagi/ArtboardZoom/",
   "repository": {
     "type": "git",
