@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 
-// Copyright (c) 2015 Mikko Tapionlinna
+// Copyright (c) Mikko Tapionlinna
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-var onRun = function(context) {
+var _getCurrentArtboard = function(context) {
   var targetArtboard;
   var doc = context.document;
 
@@ -37,6 +37,14 @@ var onRun = function(context) {
     targetArtboard = targetArtboard.parentGroup();
   }
 
+  return targetArtboard;
+}
+
+var artboardZoom = function(context) {
+
+  var targetArtboard = _getCurrentArtboard(context);
+  var doc = context.document;
+
   var padding = 0.025; // Relative to of artboard size, 0.025 = 2.5%
 
   var targetRect = targetArtboard.rect();
@@ -47,4 +55,58 @@ var onRun = function(context) {
 
   var view = [doc currentView];
   [view zoomToFitRect:targetRect];
+
 };
+
+var actualSizeZoom = function(context) {
+
+  var targetArtboard = _getCurrentArtboard(context);
+  var doc = context.document;
+
+  var view = doc.currentView();
+  var zoomValue = doc.zoomValue();
+  var visibleContent = view.visibleContentRect();
+
+  var originalWidth = visibleContent.size.width;
+  var originalHeight = visibleContent.size.height;
+  var originalX = visibleContent.origin.x;
+  var originalY = visibleContent.origin.y;
+
+  var targetRect = targetArtboard.rect();
+  var centerX = targetRect.origin.x + (targetRect.size.width / 2);
+  var centerY = targetRect.origin.y + (targetRect.size.height / 2);
+
+  targetRect.size.width = originalWidth * zoomValue;
+  targetRect.size.height = originalHeight * zoomValue;
+  targetRect.origin.x = centerX - (targetRect.size.width / 2);
+  targetRect.origin.y = centerY - (targetRect.size.height / 2);
+
+  view.zoomToFitRect(targetRect);
+
+}
+
+
+var about = function(context) {
+
+  // Create the dialog
+  var alert = COSAlertWindow.new();
+
+  alert.setMessageText("ArtboardZoom");
+  alert.setInformativeText(
+    "ArtboardZoom plugin was created by Mikko Tapionlinna. \n"+
+    "\n"+
+    "Shortcuts:\n"+
+      "\t\t⌘ 4 = Zoom to artboard\n"+
+      "\t\t⌘ ⌥ 4 = Zoom to artboard at 100% zoom\n"+
+    "\n"+
+    "Please report bugs at \n"+
+    "https://github.com/Arkkimaagi/ArtboardZoom");
+  alert.addButtonWithTitle("OK");
+
+  var iconPath = context.plugin.urlForResourceNamed("ArtboardZoom.png").path();
+  var icon = NSImage.alloc().initByReferencingFile(iconPath);
+  alert.setIcon(icon);
+
+  // Show dialog
+  alert.runModal();
+}

@@ -3,20 +3,37 @@
   "commands" : [
     {
       "script" : "ArtboardZoom.cocoascript",
-      "handler" : "onRun",
+      "handler" : "artboardZoom",
       "shortcut" : "command 4",
-      "name" : "ArtboardZoom - Zoom to selected Artboard",
+      "name" : "ArtboardZoom",
       "identifier" : "ArtboardZoom"
+    },
+    {
+      "script" : "ArtboardZoom.cocoascript",
+      "handler" : "actualSizeZoom",
+      "shortcut" : "command alt 4",
+      "name" : "ArtboardZoom 100%",
+      "identifier" : "ActualSizeZoom"
+    },
+    {
+      "script" : "ArtboardZoom.cocoascript",
+      "handler" : "about",
+      "shortcut" : "",
+      "name" : "About ArtboardZoom...",
+      "identifier" : "about"
     }
   ],
   "menu": {
-    "isRoot": true,
+    "isRoot": false,
     "items": [
-      "ArtboardZoom"
+      "ArtboardZoom",
+      "ActualSizeZoom",
+      "-",
+      "about"
     ]
   },
   "identifier" : "com.github.arkkimaagi.artboardzoom",
-  "version" : "1.1.0",
+  "version" : "1.2.0",
   "description" : "Tiny Sketch.app plugin for zooming to Artboard of currently selected object.",
   "authorEmail" : "mikko@tapionlinna.fi",
   "name" : "ArtboardZoom"
