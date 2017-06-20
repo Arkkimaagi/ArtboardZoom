@@ -33,7 +33,8 @@
     ]
   },
   "identifier" : "com.github.arkkimaagi.artboardzoom",
-  "version" : "1.2.0",
+  "version" : "1.2.1",
+  "appcast" : "https://api.sketchpacks.com/v1/plugins/com.github.arkkimaagi.artboardzoom/appcast",
   "description" : "Tiny Sketch.app plugin for zooming to Artboard of currently selected object.",
   "authorEmail" : "mikko@tapionlinna.fi",
   "name" : "ArtboardZoom"
