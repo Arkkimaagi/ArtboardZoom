@@ -53,3 +53,10 @@ Installation should be quite easy, here are two ways to do it.
 
 ## Feedback
 If you discover any issues, please create a new issue here explaining the problem.
+
+---
+
+## Catch all Sketch App plugins by Arkkimaagi:
+
+* [ArtboardZoom](https://github.com/Arkkimaagi/ArtboardZoom)
+* [Bookmark 🔖](https://github.com/Arkkimaagi/Bookmark)
