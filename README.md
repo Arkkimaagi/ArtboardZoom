@@ -4,7 +4,7 @@ Tiny Sketch.app plugin for zooming to Artboard of currently selected object.
 <img src="/../artwork/ArtboardZoom.png?raw=true" alt="ArtboardZoom Cmd+4" width="200">
 
 ## Installation
-Installation should be quite easy, here are two ways to do it.
+Installation should be quite easy, here are three ways to do it.
 
 ### Install using Sketchpacks (recommended)
 
