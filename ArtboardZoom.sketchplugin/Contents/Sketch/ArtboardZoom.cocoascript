@@ -40,6 +40,16 @@ var _getCurrentArtboard = function(context) {
   return targetArtboard;
 }
 
+var _getCurrentView = function(doc) {
+  if (doc.currentView) {
+    return doc.currentView();
+  } else if (doc.contentDrawView) {
+    return doc.contentDrawView();
+  }
+  log("ERROR: Can not get currentView");
+  return null;
+}
+
 var artboardZoom = function(context) {
 
   var targetArtboard = _getCurrentArtboard(context);
@@ -53,7 +63,7 @@ var artboardZoom = function(context) {
   targetRect.size.width *= 1+padding*2;
   targetRect.size.height *= 1+padding*2;
 
-  var view = [doc currentView];
+  var view = _getCurrentView(doc);
   [view zoomToFitRect:targetRect];
 
 };
@@ -63,7 +73,7 @@ var actualSizeZoom = function(context) {
   var targetArtboard = _getCurrentArtboard(context);
   var doc = context.document;
 
-  var view = doc.currentView();
+  var view = _getCurrentView(doc);
   var zoomValue = doc.zoomValue();
   var visibleContent = view.visibleContentRect();
 
