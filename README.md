@@ -1,4 +1,4 @@
-# ArtboardZoom v 1.2.2
+# ArtboardZoom v 1.2.3
 Tiny Sketch.app plugin for zooming to Artboard of currently selected object.
 
 <img src="/../artwork/ArtboardZoom.png?raw=true" alt="ArtboardZoom Cmd+4" width="200">
@@ -41,6 +41,7 @@ Installation should be quite easy, here are three ways to do it.
 
 ## Version history
 
+* 1.2.3 Added version information to the About-dialog
 * 1.2.2 Added a fix for API changes in Sketch 48
 * 1.2.1 Added support for Sketch 45 update plugin feature
 * 1.2.0

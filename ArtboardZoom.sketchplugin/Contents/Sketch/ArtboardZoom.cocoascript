@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+var VERSION = "1.2.3";
+
 var _getCurrentArtboard = function(context) {
   var targetArtboard;
   var doc = context.document;
@@ -101,9 +103,9 @@ var about = function(context) {
   // Create the dialog
   var alert = COSAlertWindow.new();
 
-  alert.setMessageText("ArtboardZoom");
+  alert.setMessageText("ArtboardZoom "+VERSION);
   alert.setInformativeText(
-    "ArtboardZoom plugin was created by Mikko Tapionlinna. \n"+
+    "ArtboardZoom plugin by Mikko Tapionlinna. \n"+
     "\n"+
     "Shortcuts:\n"+
       "\t\t⌘ 4 = Zoom to artboard\n"+
